@@ -1,0 +1,100 @@
+<div class="container">
+
+    <h2>Resumo Financeiro</h2>
+
+    @if (carregando) {
+
+        <p>Carregando dados financeiros...</p>
+
+    } @else if (mensagem) {
+
+        <p class="mensagem">{{ mensagem }}</p>
+
+    } @else {
+
+        <div class="cards">
+
+            <div class="card receitas">
+
+                <h3>Total de receitas</h3>
+
+                <p>
+                    {{ totalReceitas | currency:'BRL':'symbol':'1.2-2' }}
+                </p>
+
+            </div>
+
+            <div class="card despesas">
+
+                <h3>Total de despesas</h3>
+
+                <p>
+                    {{ totalDespesas | currency:'BRL':'symbol':'1.2-2' }}
+                </p>
+
+            </div>
+
+            <div class="card saldo">
+
+                <h3>Saldo disponível</h3>
+
+                <p
+                    [class.positivo]="saldo > 0"
+                    [class.negativo]="saldo < 0"
+                >
+                    {{ saldo | currency:'BRL':'symbol':'1.2-2' }}
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="situacao">
+
+            <h3>Situação financeira</h3>
+
+            @if (saldo > 0) {
+
+                <p class="positivo">
+                    Seu saldo está positivo!
+                </p>
+
+            } @else if (saldo < 0) {
+
+                <p class="negativo">
+                    Atenção! Suas despesas são maiores que suas receitas.
+                </p>
+
+            } @else {
+
+                <p>Seu saldo está zerado.</p>
+
+            }
+
+            <p>
+                Total de movimentações: {{ movimentacoes.length }}
+            </p>
+
+        </div>
+
+    }
+
+    <div class="grafico-container">
+
+        <h3>Despesas por categoria</h3>
+
+        @if (!carregando && !mensagem && totalDespesas === 0) {
+
+            <p>Nenhuma despesa cadastrada.</p>
+
+        }
+
+        <div class="grafico">
+
+            <canvas #graficoPizza></canvas>
+
+        </div>
+
+    </div>
+
+</div>

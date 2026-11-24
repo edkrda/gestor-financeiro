@@ -1,0 +1,115 @@
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #1e293b;
+}
+
+.filtro {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.filtro label {
+    font-weight: bold;
+}
+
+select {
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.tabela-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #1e293b;
+    color: white;
+    text-align: left;
+    padding: 15px;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+tr:hover {
+    background-color: #f8fafc;
+}
+
+.receita {
+    color: #16a34a;
+    font-weight: bold;
+}
+
+.despesa {
+    color: #dc2626;
+    font-weight: bold;
+}
+
+.categoria {
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: #1e293b;
+    font-size: 14px;
+}
+
+.acoes {
+    white-space: nowrap;
+}
+
+.editar,
+.excluir {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.editar {
+    background-color: #2563eb;
+    margin-right: 8px;
+}
+
+.editar:hover {
+    background-color: #1d4ed8;
+}
+
+.excluir {
+    background-color: #dc2626;
+}
+
+.excluir:hover {
+    background-color: #b91c1c;
+}
+
+.vazio {
+    text-align: center;
+    color: #64748b;
+    padding: 30px;
+}
+
+.mensagem {
+    color: #dc2626;
+}

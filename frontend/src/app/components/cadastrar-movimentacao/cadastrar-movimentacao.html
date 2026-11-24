@@ -1,0 +1,80 @@
+<div class="container">
+
+    <h2>
+        {{ editando ? 'Editar Movimentação' : 'Nova Movimentação' }}
+    </h2>
+
+    <form #formulario="ngForm" (ngSubmit)="salvar()">
+
+        <label>Descrição</label>
+
+        <input
+            type="text"
+            name="descricao"
+            [(ngModel)]="movimentacao.descricao"
+            placeholder="Ex.: Supermercado"
+            required
+        >
+
+        <label>Tipo de movimentação</label>
+
+        <select
+            name="tipo"
+            [(ngModel)]="movimentacao.tipo"
+            required
+        >
+            <option value="receita">Receita</option>
+            <option value="despesa">Despesa</option>
+        </select>
+
+        <label>Categoria</label>
+
+        <select
+            name="categoria"
+            [(ngModel)]="movimentacao.categoria"
+            required
+        >
+            <option value="">Selecione uma categoria</option>
+
+            @for (categoria of categorias; track categoria) {
+                <option [value]="categoria">
+                    {{ categoria }}
+                </option>
+            }
+
+        </select>
+
+        <label>Data</label>
+
+        <input
+            type="date"
+            name="data"
+            [(ngModel)]="movimentacao.data"
+            required
+        >
+
+        <label>Valor (R$)</label>
+
+        <input
+            type="number"
+            name="valor"
+            [(ngModel)]="movimentacao.valor"
+            min="0.01"
+            step="0.01"
+            required
+        >
+
+        <button
+            type="submit"
+            [disabled]="formulario.invalid"
+        >
+            {{ editando ? 'Salvar alterações' : 'Cadastrar movimentação' }}
+        </button>
+
+        @if (mensagem) {
+            <p class="mensagem">{{ mensagem }}</p>
+        }
+
+    </form>
+
+</div>
